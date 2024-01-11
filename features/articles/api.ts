@@ -12,6 +12,7 @@ export const findAll = async ({ limit }: FindAllParams = {}) => {
       slug: true,
       excerpt: true,
       image: true,
+      updatedAt: true,
     },
     orderBy: {
       updatedAt: 'desc',
@@ -25,6 +26,14 @@ export const findAll = async ({ limit }: FindAllParams = {}) => {
 export const findById = async (id: number) => {
   const article = await db.article.findUnique({
     where: { id },
+  });
+
+  return article;
+};
+
+export const findBySlug = async (slug: string) => {
+  const article = await db.article.findUnique({
+    where: { slug },
   });
 
   return article;
