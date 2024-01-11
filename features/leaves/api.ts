@@ -24,11 +24,6 @@ export const findAll = async (userId: number) => {
 export const findById = async (id: number) => {
   const leave = await db.leave.findUnique({
     where: { id },
-    select: {
-      id: true,
-      leaveDate: true,
-      reason: true,
-    },
   });
 
   if (!leave) throw new Error('leave not found');

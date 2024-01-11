@@ -1,7 +1,7 @@
 'use client';
 
 import {
-  type Leave,
+  type LeaveDetails,
   type AddLeaveInput,
   type UpdateLeaveInput,
 } from '@/features/leaves/types';
@@ -36,7 +36,7 @@ export type LeaveFormProps =
     }
   | {
       kind: 'edit';
-      leave: Leave;
+      leave: LeaveDetails;
       onSubmit: SubmitHandler<UpdateLeaveInput>;
     };
 
